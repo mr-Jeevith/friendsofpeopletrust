@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Friends of People Trust – Join the Mission</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js" defer></script>
+  <style>
+    :root {
+      --primary: #4CAF50;
+      --accent: #ff9800;
+      --bg: #fdfdfd;
+      --text: #333;
+      --mute: #666;
+      --shadow: rgba(0,0,0,0.1);
+      --radius: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; scroll-behavior: smooth; }
+    body { margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+    img, svg { max-width:100%; display:block; }
+
+    /* KEYFRAMES */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    header {
+      background: linear-gradient(135deg,#4CAF50,#66bb6a);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      overflow: hidden;
+    }
+    header h1 {
+      font-size:2.6rem;
+      margin-bottom:10px;
+      opacity:0;
+      animation: fadeSlideIn 1s ease-out forwards;
+    }
+    header p {
+      font-size:1.2rem;
+      opacity:0;
+      animation: fadeSlideIn 1s ease-out forwards;
+      animation-delay:0.4s;
+    }
+
+    nav {
+      background: white;
+      box-shadow:0 2px 8px var(--shadow);
+      position:sticky; top:0;
+      z-index:100;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 20px;
+    }
+    nav .nav-links a {
+      color:var(--text);
+      font-weight:600;
+      margin:0 10px;
+      position:relative;
+    }
+    nav .nav-links a::after {
+      content:'';
+      display:block;
+      width:0;
+      height:2px;
+      background:var(--accent);
+      transition: width .3s;
+      position:absolute;
+      bottom:-2px; left:0;
+    }
+    nav .nav-links a:hover::after { width:100%; }
+
+    .hero {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:#e8f5e9;
+      padding:80px 20px;
+      text-align:center;
+      animation: fadeSlideIn 1s ease-out forwards;
+    }
+    .hero .lottie { width:200px; animation:pulse 3s infinite; }
+    .hero h2 { font-size:2.2rem; margin:12px 0; }
+    .hero p { font-size:1.1rem; color:var(--mute); max-width:600px; }
+
+    section { padding:60px 20px; max-width:1000px; margin:0 auto; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card {
+      background:white;
+      border-radius:var(--radius);
+      box-shadow:0 4px 16px var(--shadow);
+      overflow:hidden;
+      transform: translateY(20px);
+      opacity:0;
+      animation: fadeSlideIn 0.8s ease-out forwards;
+    }
+    .card:nth-child(1) { animation-delay:0.2s; }
+    .card:nth-child(2) { animation-delay:0.4s; }
+    .card:nth-child(3) { animation-delay:0.6s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { height:200px; object-fit:cover; }
+    .card-content { padding:20px; }
+    .card-content h3::before { content:'🌟 '; }
+
+    .counters {
+      display:flex;
+      justify-content:space-around;
+      background:#f0fdf4;
+      padding:40px 0;
+      animation: fadeSlideIn 1s ease-out forwards;
+      animation-delay:0.8s;
+      opacity:0;
+    }
+    .counter h3 { color:var(--accent); }
+
+    .gallery {
+      display:flex;
+      overflow-x:auto;
+      gap:10px;
+      padding:10px 0;
+    }
+    .gallery img {
+      width:200px;
+      height:150px;
+      object-fit:cover;
+      border-radius:var(--radius);
+      filter:grayscale(20%);
+      transition: filter .5s;
+    }
+    .gallery img:hover {
+      filter:grayscale(0);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background:var(--primary);
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    @media(max-width:768px){
+      nav .nav-links { display:none; flex-direction:column; }
+      .hamburger { display:block; }
+    }
+    @keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--accent); }
+}
+
+h2::before {
+  animation: bounce 2s infinite;
+  display: inline-block;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(1.02);
+}
+
+#upcoming h2 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeSlideIn 1s ease-out forwards, glow 2s infinite;
+}
+
+.card-content h3 {
+  color: var(--primary);
+}
+
+.card-content p {
+  color: var(--mute);
+}
+/* Alternate section backgrounds with pastel tones */
+section:nth-of-type(odd) {
+  background-color: #e6f4ea; /* light mint green */
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 60px 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+section:nth-of-type(even) {
+  background-color: #ffffff; /* clean white */
+  padding: 60px 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+/* Thin subtle separator line between sections */
+section + section {
+  border-top: 1.5px solid #a3d3a1; /* soft green */
+  margin-top: 50px;
+  padding-top: 40px;
+}
+#contact {
+  background: #fefefe;
+  padding: 40px 15px;
+  animation: fadeInUp 1s ease-out both;
+}
+
+#contact h2 {
+  color: black;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  background: #ffffff;
+  border-left: 4px solid var(--primary);
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.contact-item:nth-child(1) { animation-delay: 0.2s; }
+.contact-item:nth-child(2) { animation-delay: 0.4s; }
+.contact-item:nth-child(3) { animation-delay: 0.6s; }
+.contact-item:nth-child(4) { animation-delay: 0.8s; }
+
+.contact-item a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-item a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.see-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.see-more-btn {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.see-more-btn:hover {
+  background-color: #b4afde;
+  transform: scale(1.05);
+}
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  animation: zoomIn 0.4s ease-out;
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: var(--accent);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* Enhanced wider layout for About and Gallery sections */
+#about, #gallery {
+  max-width: 100%;
+  padding: 60px 5vw; /* Responsive horizontal padding */
+  margin: 0 auto;
+}
+
+/* Improve card grid spacing and responsiveness */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Make gallery images slightly larger and cleaner */
+.gallery {
+  gap: 16px;
+  padding: 20px 5vw;
+}
+
+.gallery img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.card img {
+  width: 100%;
+  height: 220px; /* Consistent height */
+  object-fit: cover; /* Crop nicely to fill box */
+  object-position: center; /* Keep image centered */
+  display: block;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 10px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.project-item {
+  padding: 20px;
+  border-left: 5px solid var(--primary);
+  background-color: #f9fff9;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item:hover {
+  background-color: #eaffea;
+  transform: translateX(5px);
+}
+
+.project-item h3 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.project-item p {
+  margin: 0;
+  color: var(--mute);
+  font-size: 0.95rem;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌍 Friends of People Trust</h1>
+  <p id="timeGreeting">Hello! Let’s work together for change.</p>
+</header>
+
+
+
+<nav>
+  <div class="nav-links" id="navLinks">
+    <a href="final1.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="project.html">Projects</a>
+    <a href="#impact">Impact</a>
+    <a href="gallery-full.html">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+
+<section class="hero">
+  <div id="lottie-hero" class="lottie"></div>
+  <h2>Empowering Communities, Together 💪</h2>
+  <p>Together we can build brighter futures through education, clean water, and livelihood support.</p>
+</section>
+
+
+<section id="about">
+  <h2>About Us</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="img.jpeg/img7.jpeg.jpeg" alt="Education">
+      <div class="card-content">
+        <h3>Education</h3>
+        <p>Enabling young minds through access and resources.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="img.jpeg/img12.jpeg.jpeg" alt="identification Projects">
+      <div class="card-content">
+        <h3>Identification</h3>
+        <p>let's get identified.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="img.jpeg/img14.jpeg.jpeg" alt="Livelihood">
+      <div class="card-content">
+        <h3>Livelihoods</h3>
+        <p>Empowering women and youth through training.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+<section id="projects">
+  <h2>Our Projects </h2>
+  <div class="project-list">
+    <a href="project.html" class="project-item">
+      <h3>📘 Education Outreach</h3>
+      <p>Creating better futures through schools, supplies, and teacher support.</p>
+    </a>
+    <a href="project.html" class="project-item">
+      <h3>💧 Clean Water Missions</h3>
+      <p>Providing safe drinking water to remote villages with wells and purification.</p>
+    </a>
+    <a href="project.html" class="project-item">
+      <h3>🧵 Women Empowerment</h3>
+      <p>Vocational training, self-help groups, and micro-entrepreneurship for women.</p>
+    </a>
+    <a href="project.html" class="project-item">
+      <h3>🪪 ID & Awareness Drives</h3>
+      <p>Helping undocumented people get IDs, access services, and exercise rights.</p>
+    </a>
+  </div>
+</section>
+
+
+
+
+<section id="gallery">
+  <h2>Impact Gallery </h2>
+  <div class="gallery">
+    <img src="img.jpeg/img1.jpeg.jpeg" alt="Project Photo 1">
+    <img src="img.jpeg/img2.jpeg.jpeg" alt="Project Photo 2">
+    <img src="img.jpeg/img4.jpeg.jpeg" alt="Project Photo 3">
+    <img src="img.jpeg/img5.jpeg.jpeg" alt="Project Photo 4">
+    <img src="img.jpeg/img15.jpeg.jpeg" alt="project phtoto5">
+  </div>
+  <div class="see-more">
+    <a href="gallery-full.html" class="see-more-btn">See More Photos →</a>
+  </div>
+</section>
+
+<!-- Keep this OUTSIDE any section tag -->
+<div id="imageModal" class="image-modal">
+  <span class="close-btn" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImg" />
+</div>
+
+<section id="impact" class="counters">
+  <div class="counter"><h3 id="c1">0</h3><p>Students Educated</p></div>
+  <div class="counter"><h3 id="c2">0</h3><p>Villages Reached</p></div>
+  <div class="counter"><h3 id="c3">0</h3><p>Volunteers Engaged</p></div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact Us </h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <strong>Email:</strong>
+      <a href="mailto:contact@yourngo.org">friendsofpeopletrust@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <strong>Address:</strong>
+      <p>Plot no. 1, Jawaharlal Nehru salai, SIDCO Idustrial Estate, Guindy, Chennai, Tamil Nadu 600032</p>
+    </div>
+    <div class="contact-item">
+      <strong>Phone:</strong>
+      <a href="tel:7010146427">7010146427</a>
+    </div>
+    <div class="contact-item">
+      <strong>GPay Number:</strong>
+      <a href="tel:7010146427">7010146427</a>
+    </div>
+     <div class="contact-item">
+      <strong>Instagram Id:   click here🢃</strong>
+      <a href="https://www.instagram.com/friendsofpeopletrust?igsh=MTJ2djRkcmY1czBxMA%3D%3D&utm_source=qr">https://www.instagram.com/friendsofpeopletrust?igsh=MTJ2djRkcmY1czBxMA%3D%3D&utm_source=qr</a>
+    </div>
+    
+   </section>
+
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  © 2025 Friends of People Trust — All rights reserved.
+</footer>
+
+<script>
+  const tg = document.getElementById('timeGreeting');
+  const hr = new Date().getHours();
+  tg.textContent = hr<12 
+    ? 'Good Morning! Ready to make an impact?' 
+    : hr<18 
+    ? 'Good Afternoon! Let’s build change.' 
+    : 'Good Evening! Thanks for visiting.';
+
+  function animateCounter(id, target) {
+    let i = 0, el = document.getElementById(id),
+      step = Math.ceil(target / 100);
+    const timer = setInterval(() => {
+      i += step;
+      el.textContent = i >= target ? target : i;
+      if (i >= target) clearInterval(timer);
+    }, 20);
+  }
+  window.addEventListener('scroll', () => {
+    const sec = document.getElementById('impact');
+    if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+      animateCounter('c1', 1250);
+      animateCounter('c2', 78);
+      animateCounter('c3', 350);
+      window.removeEventListener('scroll', arguments.callee);
+    }
+  });
+
+  function showTest(i) {
+    document.querySelectorAll('.testimonial-slide').forEach((el, idx) => {
+      el.classList.toggle('active', idx === i);
+    });
+    document.querySelectorAll('.test-nav button').forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === i);
+    });
+  }
+document.addEventListener('DOMContentLoaded', () => {
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-hero'),
+      renderer: 'svg', loop: true, autoplay: true,
+      path: 'https://assets1.lottiefiles.com/packages/lf20_jcikwtux.json'
+    });
+  });
+  const sections = document.querySelectorAll('section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeSlideIn 1s ease-out forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+sections.forEach(section => {
+  section.style.opacity = 0;
+  section.style.transform = 'translateY(30px)';
+  observer.observe(section);
+});
+// Lightbox-style modal for gallery
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll(".gallery img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+  });
+});
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Optional: close with ESC key
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+</script>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Gallery – Friends of People Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #4CAF50;
+      --bg: #fdfdfd;
+      --text: #333;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --radius: 8px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: linear-gradient(135deg, #4CAF50, #66bb6a);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    .gallery-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.04);
+    }
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+    .back-link {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .back-link a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+    /* Title Gradient + Animation */
+header h1 {
+  background: linear-gradient(90deg, #ffffff, #c8f7c5, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textFadeIn 1.5s ease forwards;
+}
+
+header p {
+  animation: fadeSlideDown 2s ease forwards;
+  opacity: 0;
+  margin-top: 10px;
+}
+
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in animation for gallery images */
+.gallery-grid img {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInZoom 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1> Full Impact Gallery</h1>
+  <p>Explore more moments from our field work and events</p>
+</header>
+
+<div class="gallery-container">
+  <div class="gallery-grid">
+<img src="img.jpeg/img5.jpeg.jpeg" alt="Gallery Image 1" style="--i:1">
+<img src="img.jpeg/img6.jpeg.jpeg" alt="Gallery Image 2" style="--i:2">
+<img src="img.jpeg/img7.jpeg.jpeg" alt="Gallery Image 3" style="--i:3">
+<img src="img.jpeg/img8.jpeg.jpeg" alt="Gallery Image 4" style="--i:4">
+<img src="img.jpeg/img9.jpeg.jpeg" alt="Gallery Image 5" style="--i:5">
+<img src="img.jpeg/img10.jpeg.jpeg" alt="Gallery Image 6" style="--i:6">
+<img src="img.jpeg/img11.jpeg.jpeg" alt="Gallery Image 7" style="--i:7">
+<img src="img.jpeg/img12.jpeg.jpeg" alt="Gallery Image 8" style="--i:8">
+<img src="img.jpeg/img13.jpeg.jpeg" alt="Gallery Image 9" style="--i:9">
+<img src="img.jpeg/img14.jpeg.jpeg" alt="Gallery Image 10" style="--i:10">
+
+  </div>
+
+  <div class="back-link">
+    <a href="final1.html">← Back to Home</a>
+  </div>
+</div>
+
+<!-- Lightbox Element -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Expanded View" id="lightbox-img">
+</div>
+
+<footer>
+  © 2025 Friends of People Trust — All rights reserved.
+</footer>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const images = document.querySelectorAll('.gallery-grid img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Close lightbox on click
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  });
+</script>
+
+</body>
+</html>

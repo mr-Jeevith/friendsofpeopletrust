@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us – Friends of People Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f6f7;
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 20px 0;
+      background-color: #e8f5e9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4caf50;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 3px;
+      transition: border-color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-color: #ff9800;
+    }
+
+    h1, h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    p, li {
+      color: #555;
+      line-height: 1.6;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    section {
+      padding: 60px 30px;
+    }
+
+    .intro {
+      background-color: #ffffff;
+    }
+
+    .vision {
+      background-color: #f1f8e9;
+    }
+
+    .values {
+      background-color: #e3f2fd;
+    }
+
+    .gallery {
+      background-color: #ffffff;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #eeeeee;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="final1.html">Home</a>
+  <a href="about.html" class="active">About Us</a>
+  <a href="project.html">Projects</a>
+  <a href="gallery-full.html">Gallery</a>
+  <a href="final1.html">Contact</a>
+</nav>
+
+<section class="intro">
+  <h1>About Friends of People Trust</h1>
+  <p>
+    Friends of People Trust is a dedicated nonprofit organization committed to empowering underserved communities across India.
+     we have worked tirelessly to improve access to education, healthcare, and sustainable livelihoods for rural and urban marginalized populations.
+  </p>
+  <p>
+    Our core mission is to create lasting social impact by collaborating with local communities, volunteers, and partners to foster growth, resilience, and self-reliance.
+  </p>
+</section>
+
+<section class="vision">
+  <h2>Our Vision</h2>
+  <p>
+    A world where every individual, regardless of their background, has equal opportunities to thrive and contribute meaningfully to society.
+  </p>
+</section>
+
+<section class="values">
+  <h2>Our Values</h2>
+  <ul>
+    <li><strong>Integrity:</strong> We maintain transparency and honesty in all our actions.</li>
+    <li><strong>Empowerment:</strong> Enabling people to take charge of their own futures.</li>
+    <li><strong>Collaboration:</strong> Partnering with communities and stakeholders for collective success.</li>
+    <li><strong>Innovation:</strong> Embracing creative solutions to tackle social challenges.</li>
+  </ul>
+</section>
+
+<section class="gallery">
+  <h2>Gallery</h2>
+  <div class="image-grid">
+    <img src="img.jpeg/img7.jpeg.jpeg" alt="Community Education Program" />
+    <img src="img.jpeg/img12.jpeg.jpeg" alt="Livelihood Training" />
+    <img src="img.jpeg/img14.jpeg.jpeg" alt="Water Sanitation Project" />
+    <img src="img.jpeg/img15.jpeg.jpeg" alt="Volunteers at Work" />
+  </div>
+</section>
+
+<footer>
+  © 2025 Friends of People Trust — All rights reserved.
+</footer>
+
+</body>
+</html>
+
